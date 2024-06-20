@@ -1,0 +1,10 @@
+.card{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(213, 213, 213);
+}
+
+.card img{
+    height: 18rem;
+}
+
