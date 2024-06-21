@@ -1,0 +1,21 @@
+<div class="container cetralize">
+    <div class="login-container cetralize mat-elevation-z10">
+        <h2>Faça o Login</h2>
+
+        <img src="assets/img/login-image.svg" alt="">
+
+        <form class="form cetralize ">
+            <mat-form-field class="full-width">
+                <mat-label>E-mail</mat-label>
+                <input [formControl]="email" required [(ngModel)]="creds.email" name="nome" matInput placeholder="Ex. Email">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Senha</mat-label>
+                <input [formControl]="senha" required [(ngModel)]="creds.senha" name="senha" type="password" matInput placeholder="Ex. 123@">
+            </mat-form-field>
+
+            <button (click)="login()" [disabled]="!validarCampos()" class="full-width mat-elevation-z4" mat-flat-button color="primary">Entrar</button>
+        </form>
+    </div>
+</div>

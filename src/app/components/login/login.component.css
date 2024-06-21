@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(202deg, rgba(2, 0, 36, 1) 0%, rgba(66, 66, 214, 1) 0%, rgba(46, 110, 226, 1) 46%, rgba(0, 212, 255, 1) 100%);
+
+}
+
+.container .login-container {
+    padding: 2rem;
+    gap: 2rem;
+    width: 25%;
+    border-radius: 20px;
+    flex-direction: column;
+    background: rgb(235, 235, 235);
+}
+
+.cetralize {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+form {
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+}
+
+.full-width {
+    width: 80%;
+}
+
+img {
+    width: 100%;
+    height: 15rem;
+}
