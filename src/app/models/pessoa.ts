@@ -1,4 +1,4 @@
-export interface Tecnico{
+export interface Pessoa{
     id?:any;
     nome: string;
     cpf: string;

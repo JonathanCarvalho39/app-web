@@ -2,16 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_CONFIG } from '../config/api.config';
 import { Observable } from 'rxjs';
-import { Tecnico } from '../models/tecnico';
+import { Pessoa } from '../models/pessoa';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TecnicoService {
+export class PessoaService {
 
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<Tecnico[]> {
-    return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`)
+  findAll(tipoPessoa: string): Observable<Pessoa[]> {
+    return this.http.get<Pessoa[]>(`${API_CONFIG.baseUrl}/${tipoPessoa}`)
   }
 }
