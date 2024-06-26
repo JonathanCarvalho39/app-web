@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.service.autenticar(this.creds).subscribe(resp => {
       const token = resp.headers.get('Authorization')?.substring(7);
       if (token) {
+        this.service.successsfullLogin(token)
         this.router.navigate(['home'])
       } else {
         this.toast.error('Erro ao obter o token de autenticação');

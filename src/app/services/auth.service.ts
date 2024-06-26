@@ -20,12 +20,15 @@ export class AuthService {
     }
   
     successsfullLogin(authToken: string) {
+      debugger
       localStorage.setItem('token', authToken);
     }
   
     isAuthenticated(): boolean {
+      debugger
       const token = localStorage.getItem('token');
       if (token != null) {
+        debugger
         const isTokenValid = !this.jwtService.isTokenExpired(token);
         return isTokenValid;
       }
