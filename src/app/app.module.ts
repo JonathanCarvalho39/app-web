@@ -29,11 +29,14 @@ import { MatCardModule } from '@angular/material/card';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TecnicoListComponent } from './components/tecnico-list/tecnico-list.component';
+import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
-import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
 
 
 @NgModule({
@@ -44,7 +47,8 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
     HeaderComponent,
     TecnicoListComponent,
     LoginComponent,
-    ClienteListComponent
+    ClienteListComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,8 @@ import { ClienteListComponent } from './components/cliente-list/cliente-list.com
       timeOut: 4000,
       closeButton: true,
       progressBar: true
-    })
+    }),
+    NgxMaskModule.forRoot()
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

@@ -14,4 +14,9 @@ export class PessoaService {
   findAll(tipoPessoa: string): Observable<Pessoa[]> {
     return this.http.get<Pessoa[]>(`${API_CONFIG.baseUrl}/${tipoPessoa}`)
   }
+
+  create(pessoa: Pessoa, tipoPessoa: string): Observable<any> {
+    debugger
+    return this.http.post(`${API_CONFIG.baseUrl}/${tipoPessoa}`, pessoa);
+  }
 }
