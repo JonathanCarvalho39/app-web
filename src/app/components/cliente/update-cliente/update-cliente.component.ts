@@ -46,7 +46,6 @@ export class UpdateClienteComponent implements OnInit {
   }
 
   update(): void {
-    let tipoPessoa = 'clientes'
     this.service.update(this.cliente).subscribe(() => {
       this.toast.success("Cliente atualizado com sucesso")
       this.router.navigate(['/cliente'])

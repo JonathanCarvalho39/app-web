@@ -37,14 +37,9 @@ export class CreateClienteComponent implements OnInit {
   }
 
   crate(): void {
-    let tipoPessoa = this.form.controls['tecnico'].value ? 'tecnicos' : 'clientes'
     this.service.create(this.cliente).subscribe(res => {
       this.toast.success("Usuario cadastrado com sucesso")
-      if (tipoPessoa == 'tecnicos') {
-        this.route.navigate(['/tecnico'])
-      } else {
-        this.route.navigate(['/cliente'])
-      }
+      this.route.navigate(['/cliente'])
     }, ex => {
       if (ex.error.errors) {
         ex.error.errors.forEach(element => {
