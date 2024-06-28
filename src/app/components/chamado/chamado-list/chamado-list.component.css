@@ -1,0 +1,70 @@
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.container-table {
+    max-height: 23rem;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.icons {
+    justify-content: center;
+    display: flex;
+    gap: 2rem;
+}
+
+.edit {
+    color: rgba(0, 106, 255, 0.805);
+    cursor: pointer;
+}
+
+.delete {
+    color: rgba(255, 0, 0, 0.701);
+    cursor: pointer;
+}
+
+.observacoes {
+    color: rgba(0, 0, 0, 0.592);
+    cursor: pointer;
+}
+
+.mat-cell {
+    text-align: center;
+}
+
+.mat-header-cell {
+    text-align: center;
+}
+
+.mat-header-row {
+    background-color: #f0f0f0;
+}
+
+.mat-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.mat-row:hover {
+    background-color: #f0f0f0;
+}
+
+.mat-paginator {
+    justify-content: center;
+    margin-top: 20px;
+}

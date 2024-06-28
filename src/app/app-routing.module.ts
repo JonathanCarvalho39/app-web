@@ -10,6 +10,9 @@ import { CreateTecnicoComponent } from './components/tecnico/tecnico-create/tecn
 import { UpdateTecnicoComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { CreateClienteComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { UpdateClienteComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
+import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,8 +28,12 @@ const routes: Routes = [
 
       { path: 'cliente', component: ClienteListComponent },
       { path: 'cliente/create', component: CreateClienteComponent },
-      { path: 'cliente/update/:id', component: UpdateClienteComponent }
+      { path: 'cliente/update/:id', component: UpdateClienteComponent },
 
+
+      { path: 'chamado', component: ChamadoListComponent },
+      { path: 'chamado/create', component: ChamadoCreateComponent },
+      { path: 'chamado/update', component: ChamadoUpdateComponent }
     ]
   }
 ];
