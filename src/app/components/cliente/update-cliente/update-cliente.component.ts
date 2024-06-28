@@ -38,12 +38,24 @@ export class UpdateClienteComponent implements OnInit {
   }
 
   findById() {
-    console.log(this.cliente)
     this.service.findById(this.cliente.id).subscribe(resp => {
-      resp.perfis = [1]
+      
       this.cliente = resp;
+      this.cliente.perfis.splice(this.cliente.perfis.indexOf('CLIENTE'), 1)
+      this.cliente.perfis.push(1)
+
+      this.cliente.perfis.forEach(element => {
+
+        if (element == 'ADMIN') {
+          this.form.patchValue({ admin: true });
+          this.cliente.perfis.splice(0, 1)
+          this.cliente.perfis.push(0)
+        }
+
+      })
     });
   }
+
   update(): void {
     this.service.update(this.cliente).subscribe(() => {
       this.toast.success("Cliente atualizado com sucesso")
@@ -60,7 +72,7 @@ export class UpdateClienteComponent implements OnInit {
   }
   addPerfil(perfil: any) {
     if (this.cliente.perfis.includes(perfil)) {
-      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil))
+      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil), 1)
     } else {
       this.cliente.perfis.push(perfil)
     }

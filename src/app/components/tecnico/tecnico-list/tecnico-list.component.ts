@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Tecnico } from 'src/app/models/tecnico'
 import { TecnicoService } from 'src/app/services/tecnico.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tecnico-list',
@@ -17,7 +19,8 @@ export class TecnicoListComponent implements OnInit {
   dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
-    private service: TecnicoService
+    private service: TecnicoService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +38,35 @@ export class TecnicoListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  delete(id: any, nome:string) {
+    Swal.fire({
+      title: 'Tem certeza?',
+      text: `Você realmente deseja deletar o técnico ${nome}?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.delete(id).subscribe(() => {
+          debugger
+          Swal.fire({
+            title: 'Confirmado!',
+            text: 'Técnico deletado com sucesso.',
+            icon: 'success',
+            showConfirmButton: true,
+          }).then((resp) => {
+            if (resp.isConfirmed) {
+              location.reload()
+            }
+          });
+        }, ex => {
+          Swal.fire('Cancelado', ex.error.message, 'error');
+        })
+      }
+    });
   }
 
   formatarCPF(cpf: string): string {

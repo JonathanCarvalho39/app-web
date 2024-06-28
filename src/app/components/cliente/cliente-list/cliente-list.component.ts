@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Cliente } from 'src/app/models/cliente'
 import { ClienteService } from 'src/app/services/cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cliente-list',
@@ -17,7 +18,7 @@ export class ClienteListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private service: ClienteService,
-  
+
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +30,34 @@ export class ClienteListComponent implements OnInit {
       this.ELEMENT_DATA = rep
       this.dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+    })
+  }
+
+  delete(id: any, nome: string) {
+    Swal.fire({
+      title: 'Tem certeza?',
+      text: `Você realmente deseja deletar o cliente ${nome}?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Cancelar'
+    }).then(resp => {
+      if (resp.isConfirmed) {
+        this.service.delete(id).subscribe(resp => {
+          Swal.fire({
+            title: 'Confirmação',
+            text: 'Cliente deletado com Sucesso!',
+            icon: 'success',
+            showCancelButton: true
+          }).then(resp => {
+            if (resp.isConfirmed) {
+              location.reload()
+            }
+          })
+        }, ex => {
+          Swal.fire('Cancelado', ex.error.message, 'error')
+        })
+      }
     })
   }
 

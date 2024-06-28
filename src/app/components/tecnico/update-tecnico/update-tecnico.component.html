@@ -1,5 +1,5 @@
 <div class="container mat-elevation-z8">
-    <h1 class="funllWidth centralize">Atualizar Técd gecnico</h1>
+    <h1 class="funllWidth centralize">Atualizar Técnico</h1>
     <form [formGroup]="form" class="form">
         <mat-form-field class="funllWidth">
             <mat-label>Nome</mat-label>
@@ -28,20 +28,20 @@
 
         <mat-form-field class="funllWidth">
             <mat-label>Especialidade</mat-label>
-            <input [(ngModel)]="tecnico.especialidade" formControlName="especialidade" value="{{tecnico.especialidade}}" matInput placeholder="123">
+            <input [(ngModel)]="tecnico.especialidade" formControlName="especialidade" value="{{tecnico.especialidade}}" matInput placeholder="RH">
             <mat-icon class="half-opaque" matSuffix>workspace_premium</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="funllWidth">
             <mat-label>Anos de Experiência</mat-label>
-            <input [(ngModel)]="tecnico.anosExp" formControlName="anosExp" value="{{tecnico.anosExp}}" matInput placeholder="123">
+            <input [(ngModel)]="tecnico.anosExp" formControlName="anosExp" value="{{tecnico.anosExp}}" matInput placeholder="1">
             <mat-icon class="half-opaque" matSuffix>schedule</mat-icon>
         </mat-form-field>
 
         <div class="funllWidth centralize check">
             <div>
                 <label for="admin-checkbox">Admin</label>
-                <mat-checkbox color="primary" (click)="addPerfil(0)" formControlName="admin"></mat-checkbox>
+                <mat-checkbox [checked]="true" color="primary" (click)="addPerfil(0)" formControlName="admin"></mat-checkbox>
             </div>
         </div>
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { APP_ID, Injectable } from '@angular/core';
 import { Cliente } from '../models/cliente';
 import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
@@ -25,5 +25,9 @@ export class ClienteService {
 
   update(pessoa: Cliente): Observable<Cliente[]> {
     return this.http.put<Cliente[]>(`${API_CONFIG.baseUrl}/clientes/${pessoa.id}`, pessoa)
+  }
+
+  delete(id: any) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/clientes/${id}`)
   }
 }

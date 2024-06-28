@@ -53,7 +53,7 @@ export class CreateClienteComponent implements OnInit {
 
   addPerfil(perfil: any) {
     if (this.cliente.perfis.includes(perfil)) {
-      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil))
+      this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil), 1)
     } else {
       this.cliente.perfis.push(perfil)
     }

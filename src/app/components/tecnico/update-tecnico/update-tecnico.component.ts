@@ -25,13 +25,14 @@ export class UpdateTecnicoComponent implements OnInit {
         anosExp: null
     };
 
+
     form = new FormGroup({
         admin: new FormControl(false),
         nome: new FormControl(null, Validators.minLength(3)),
         cpf: new FormControl(null, Validators.required),
         email: new FormControl(null, Validators.email),
         senha: new FormControl(null, Validators.minLength(3)),
-        especialidade: new FormControl(null, Validators.minLength(3)),
+        especialidade: new FormControl(null, Validators.minLength(2)),
         anosExp: new FormControl(null, Validators.minLength(1))
     });
 
@@ -45,10 +46,24 @@ export class UpdateTecnicoComponent implements OnInit {
     }
 
     findById() {
-        this.service.findById(this.tecnico.id).subscribe(resp => {
-            resp.perfis = [2]
-            console.log(this.tecnico.perfis);
+        this.service.findById(this.tecnico.id).subscribe(resp => {  
+
             this.tecnico = resp;
+            this.tecnico.perfis.splice(this.tecnico.perfis.indexOf('TECNICO'), 1)
+            this.tecnico.perfis.push(2)
+            this.tecnico.perfis.splice(this.tecnico.perfis.indexOf('CLIENTE'), 1)
+            this.tecnico.perfis.push(1)
+            
+            this.tecnico.perfis.forEach(element => {
+                
+                if (element == 'ADMIN') {
+                    this.form.patchValue({ admin: true });
+                    this.tecnico.perfis.splice(0, 1)
+                    this.tecnico.perfis.push(0)
+                }
+
+            })
+
         });
     }
 
@@ -69,11 +84,9 @@ export class UpdateTecnicoComponent implements OnInit {
 
     addPerfil(perfil: any) {
         if (this.tecnico.perfis.includes(perfil)) {
-            this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil))
-            console.log(this.tecnico.perfis);
+            this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1)
         } else {
             this.tecnico.perfis.push(perfil)
-            console.log(this.tecnico.perfis);
         }
     }
 
@@ -81,7 +94,9 @@ export class UpdateTecnicoComponent implements OnInit {
         return this.form.controls['email'].valid &&
             this.form.controls['senha'].valid &&
             this.form.controls['cpf'].valid &&
-            this.form.controls['nome'].valid
+            this.form.controls['nome'].valid &&
+            this.form.controls['especialidade'].valid &&
+            this.form.controls['anosExp'].valid
     }
 
 }

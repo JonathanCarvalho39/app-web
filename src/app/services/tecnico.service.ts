@@ -8,6 +8,9 @@ import { Tecnico } from '../models/tecnico';
   providedIn: 'root'
 })
 export class TecnicoService {
+  delete(id: any) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/tecnicos/${id}`)
+  }
 
   constructor(private http: HttpClient) { }
 

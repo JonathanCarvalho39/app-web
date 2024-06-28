@@ -37,6 +37,7 @@ import { CreateTecnicoComponent } from './components/tecnico/create-tecnico/crea
 import { UpdateTecnicoComponent } from './components/tecnico/update-tecnico/update-tecnico.component';
 import { CreateClienteComponent } from './components/cliente/create-cliente/create-cliente.component';
 import { UpdateClienteComponent } from './components/cliente/update-cliente/update-cliente.component'; // Adicionado
+import Swal from 'sweetalert2';
 
 @NgModule({
   declarations: [
@@ -81,8 +82,11 @@ import { UpdateClienteComponent } from './components/cliente/update-cliente/upda
       closeButton: true,
       progressBar: true
     }),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
+
+ 
+
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })

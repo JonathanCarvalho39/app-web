@@ -21,7 +21,7 @@ export class CreateTecnicoComponent implements OnInit {
     perfis: [],
     dataCadatro: '',
     especialidade: '',
-    anosExp: null
+    anosExp: ''
   };
 
   form = new FormGroup({
@@ -29,7 +29,9 @@ export class CreateTecnicoComponent implements OnInit {
     nome: new FormControl(null, Validators.minLength(3)),
     cpf: new FormControl(null, Validators.required),
     email: new FormControl(null, Validators.email),
-    senha: new FormControl(null, Validators.minLength(3))
+    senha: new FormControl(null, Validators.minLength(3)),
+    especialidade: new FormControl(null, Validators.required),
+    anosExp: new FormControl(null, Validators.required)
   });
 
   constructor(private service: TecnicoService, private toast: ToastrService, private route: Router) {
@@ -40,8 +42,9 @@ export class CreateTecnicoComponent implements OnInit {
   }
 
   crate(): void {
-    this.service.create(this.tecnico).subscribe(res => {
-      this.toast.success("Usuario cadastrado com sucesso")
+    debugger
+    this.service.create(this.tecnico).subscribe(() => {
+      this.toast.success("Técnico cadastrado com sucesso")
       this.route.navigate(['/tecnico'])
     }, ex => {
       if (ex.error.errors) {
@@ -56,7 +59,7 @@ export class CreateTecnicoComponent implements OnInit {
 
   addPerfil(perfil: any) {
     if (this.tecnico.perfis.includes(perfil)) {
-      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil))
+      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1)
     } else {
       this.tecnico.perfis.push(perfil)
     }
@@ -66,7 +69,9 @@ export class CreateTecnicoComponent implements OnInit {
     return this.form.controls['email'].valid &&
       this.form.controls['senha'].valid &&
       this.form.controls['cpf'].valid &&
-      this.form.controls['nome'].valid
+      this.form.controls['nome'].valid &&
+      this.form.controls['especialidade'].valid &&
+      this.form.controls['anosExp'].valid
   }
 
 }

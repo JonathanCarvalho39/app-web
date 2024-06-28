@@ -1,5 +1,5 @@
 <div class="container mat-elevation-z8">
-    <h1 class="funllWidth centralize">Criar Usuário</h1>
+    <h1 class="funllWidth centralize">Criar Um Novo Técnico</h1>
     <form [formGroup]="form" class="form">
       <mat-form-field class="funllWidth">
         <mat-label>Nome</mat-label>
@@ -26,15 +26,15 @@
       </mat-form-field>
 
       <mat-form-field class="funllWidth">
-        <mat-label>Senha</mat-label>
+        <mat-label>Especialidade</mat-label>
         <input [(ngModel)]="tecnico.especialidade" formControlName="especialidade"  matInput placeholder="TI">
-        <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+        <mat-icon class="half-opaque" matSuffix>workspace_premium</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="funllWidth">
-        <mat-label>Senha</mat-label>
+        <mat-label>Anos de Experiência</mat-label>
         <input [(ngModel)]="tecnico.anosExp" formControlName="anosExp"  matInput placeholder="2">
-        <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+        <mat-icon class="half-opaque" matSuffix>schedule</mat-icon>
       </mat-form-field>
   
       <div class="funllWidth centralize check">
