@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // Para realizar requisições HTTP
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -25,7 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
-
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -34,10 +32,11 @@ import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
-import { CreateUserComponent } from './components/create-user/create-user.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
-
-
+import { NgxMaskModule } from 'ngx-mask';
+import { CreateTecnicoComponent } from './components/tecnico/create-tecnico/create-tecnico.component';
+import { UpdateTecnicoComponent } from './components/tecnico/update-tecnico/update-tecnico.component';
+import { CreateClienteComponent } from './components/cliente/create-cliente/create-cliente.component';
+import { UpdateClienteComponent } from './components/cliente/update-cliente/update-cliente.component'; // Adicionado
 
 @NgModule({
   declarations: [
@@ -48,7 +47,10 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     TecnicoListComponent,
     LoginComponent,
     ClienteListComponent,
-    CreateUserComponent
+    CreateTecnicoComponent,
+    UpdateTecnicoComponent,
+    CreateClienteComponent,
+    UpdateClienteComponent // Adicionado
   ],
   imports: [
     BrowserModule,

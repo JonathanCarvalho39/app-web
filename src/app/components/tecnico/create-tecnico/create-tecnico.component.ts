@@ -1,42 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Pessoa } from 'src/app/models/pessoa';
-import { PessoaService } from 'src/app/services/pessoa.service';
-
-
-
+import { Tecnico } from 'src/app/models/tecnico';
+import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.css']
+  selector: 'app-create-tecnico',
+  templateUrl: './create-tecnico.component.html',
+  styleUrls: ['./create-tecnico.component.css']
 })
+export class CreateTecnicoComponent implements OnInit {
 
-export class CreateUserComponent implements OnInit {
-
-
-
-  pessoa: Pessoa = {
+  tecnico: Tecnico = {
     id: '',
     nome: '',
     cpf: '',
     email: '',
     senha: '',
     perfis: [],
-    dataCadatro: ''
+    dataCadatro: '',
+    especialidade: '',
+    anosExp: null
   };
 
   form = new FormGroup({
     admin: new FormControl(false),
-    tecnico: new FormControl(false, Validators.required),
     nome: new FormControl(null, Validators.minLength(3)),
     cpf: new FormControl(null, Validators.required),
     email: new FormControl(null, Validators.email),
     senha: new FormControl(null, Validators.minLength(3))
   });
 
-  constructor(private service: PessoaService, private toast: ToastrService) {
+  constructor(private service: TecnicoService, private toast: ToastrService, private route: Router) {
 
   }
 
@@ -44,27 +40,25 @@ export class CreateUserComponent implements OnInit {
   }
 
   crate(): void {
-    let tipoPessoa = this.form.controls['tecnico'].value ? 'tecnicos' : 'clientes'
-    this.service.create(this.pessoa, tipoPessoa).subscribe(res => {
+    this.service.create(this.tecnico).subscribe(res => {
       this.toast.success("Usuario cadastrado com sucesso")
+      this.route.navigate(['/tecnico'])
     }, ex => {
       if (ex.error.errors) {
-        debugger
         ex.error.errors.forEach(element => {
           this.toast.error(element.message)
         });
       } else {
-        debugger
         this.toast.error(ex.error.message)
       }
     })
   }
 
   addPerfil(perfil: any) {
-    if (this.pessoa.perfis.includes(perfil)) {
-      this.pessoa.perfis.splice(this.pessoa.perfis.indexOf(perfil))
+    if (this.tecnico.perfis.includes(perfil)) {
+      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil))
     } else {
-      this.pessoa.perfis.push(perfil)
+      this.tecnico.perfis.push(perfil)
     }
   }
 

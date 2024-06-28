@@ -1,0 +1,51 @@
+<div class="container mat-elevation-z8">
+    <h1 class="funllWidth centralize">Criar Usuário</h1>
+    <form [formGroup]="form" class="form">
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="tecnico.nome" formControlName="nome"  matInput placeholder="José Silva">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input [(ngModel)]="tecnico.cpf" formControlName="cpf"  matInput placeholder="000.000.000-00" mask="000.000.000-00">
+        <mat-icon class="half-opaque" matSuffix>pin</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input [(ngModel)]="tecnico.email" formControlName="email"  matInput placeholder="jose@mail.com">
+        <mat-icon class="half-opaque" matSuffix>email</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input [(ngModel)]="tecnico.senha" type="password" formControlName="senha"  matInput placeholder="123">
+        <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input [(ngModel)]="tecnico.especialidade" formControlName="especialidade"  matInput placeholder="TI">
+        <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="funllWidth" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input [(ngModel)]="tecnico.anosExp" formControlName="anosExp"  matInput placeholder="2">
+        <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+      </mat-form-field>
+  
+      <div class="funllWidth centralize check">
+        <div>
+          <label for="admin-checkbox">Admin</label>
+          <mat-checkbox color="primary" (click)="addPerfil(0)" formControlName="admin"></mat-checkbox>
+        </div>
+      </div>
+  
+      <button (click)=" crate()" class="mat-elevation-z4" [disabled]="!validarCampos()" mat-raised-button color="primary">Cadastrar</button>
+      <button routerLink="../" class="mat-elevation-z4" mat-raised-button color="warn">Cancelar</button>
+    </form>
+  </div>
+  

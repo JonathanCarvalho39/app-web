@@ -1,11 +1,9 @@
-export interface Pessoa{
-    id?:any;
+export interface Cliente {
+    id?: any;
     nome: string;
     cpf: string;
     email: string;
     senha: string;
     perfis: string[];
     dataCadatro: any;
-  }
-  
-  
+}

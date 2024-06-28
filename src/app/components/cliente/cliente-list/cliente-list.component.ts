@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Pessoa } from 'src/app/models/pessoa'
-import { PessoaService } from 'src/app/services/pessoa.service';
+import { Cliente } from 'src/app/models/cliente'
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-cliente-list',
@@ -10,13 +10,14 @@ import { PessoaService } from 'src/app/services/pessoa.service';
   styleUrls: ['./cliente-list.component.css']
 })
 export class ClienteListComponent implements OnInit {
-  ELEMENT_DATA: Pessoa[] = []
+  ELEMENT_DATA: Cliente[] = []
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'acoes'];
-  dataSource = new MatTableDataSource<Pessoa>(this.ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
-    private service: PessoaService
+    private service: ClienteService,
+  
   ) { }
 
   ngOnInit(): void {
@@ -24,9 +25,9 @@ export class ClienteListComponent implements OnInit {
   }
 
   findAll() {
-    this.service.findAll('clientes').subscribe(rep => {
+    this.service.findAll().subscribe(rep => {
       this.ELEMENT_DATA = rep
-      this.dataSource = new MatTableDataSource<Pessoa>(this.ELEMENT_DATA);
+      this.dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
     })
   }
