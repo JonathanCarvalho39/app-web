@@ -36,8 +36,8 @@ export class UpdateTecnicoComponent implements OnInit {
     });
 
     constructor(private service: TecnicoService, private toast: ToastrService, private router: Router, private route: ActivatedRoute) {
-
     }
+
 
     ngOnInit(): void {
         this.tecnico.id = this.route.snapshot.paramMap.get('id')
@@ -46,7 +46,8 @@ export class UpdateTecnicoComponent implements OnInit {
 
     findById() {
         this.service.findById(this.tecnico.id).subscribe(resp => {
-            resp.perfis = []
+            resp.perfis = [2]
+            console.log(this.tecnico.perfis);
             this.tecnico = resp;
         });
     }
@@ -69,8 +70,10 @@ export class UpdateTecnicoComponent implements OnInit {
     addPerfil(perfil: any) {
         if (this.tecnico.perfis.includes(perfil)) {
             this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil))
+            console.log(this.tecnico.perfis);
         } else {
             this.tecnico.perfis.push(perfil)
+            console.log(this.tecnico.perfis);
         }
     }
 

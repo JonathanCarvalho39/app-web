@@ -1,25 +1,25 @@
 <div class="container mat-elevation-z8">
     <h1 class="funllWidth centralize">Criar Usuário</h1>
     <form [formGroup]="form" class="form">
-      <mat-form-field class="funllWidth" appearance="outline">
+      <mat-form-field class="funllWidth">
         <mat-label>Nome</mat-label>
         <input [(ngModel)]="cliente.nome" formControlName="nome"  matInput placeholder="José Silva">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
   
-      <mat-form-field class="funllWidth" appearance="outline">
+      <mat-form-field class="funllWidth">
         <mat-label>CPF</mat-label>
         <input [(ngModel)]="cliente.cpf" formControlName="cpf"  matInput placeholder="000.000.000-00" mask="000.000.000-00">
         <mat-icon class="half-opaque" matSuffix>pin</mat-icon>
       </mat-form-field>
   
-      <mat-form-field class="funllWidth" appearance="outline">
+      <mat-form-field class="funllWidth">
         <mat-label>E-mail</mat-label>
         <input [(ngModel)]="cliente.email" formControlName="email"  matInput placeholder="jose@mail.com">
         <mat-icon class="half-opaque" matSuffix>email</mat-icon>
       </mat-form-field>
   
-      <mat-form-field class="funllWidth" appearance="outline">
+      <mat-form-field class="funllWidth">
         <mat-label>Senha</mat-label>
         <input [(ngModel)]="cliente.senha" type="password" formControlName="senha"  matInput placeholder="123">
         <mat-icon class="half-opaque" matSuffix>key</mat-icon>

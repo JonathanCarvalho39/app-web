@@ -1,6 +1,6 @@
-.container{
+.container {
     width: 28rem;
-    margin: auto;
+    margin: -1rem auto;
     padding: 1rem 1rem 2rem 1rem;
     border-radius: 10px;
 }
@@ -9,31 +9,31 @@ button {
     margin-top: 1rem;
 }
 
-.fullWidth{
+.fullWidth {
     width: 100%;
 }
 
-.centralize{
+.centralize {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.funllWidth div{
+.funllWidth div {
     flex-direction: column;
     display: flex;
     align-items: center;
 }
 
-.check{
+.check {
     justify-content: space-around;
 }
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
 }
 
-.half-opaque{
+.half-opaque {
     opacity: 0.7;
 }

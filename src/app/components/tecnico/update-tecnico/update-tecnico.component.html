@@ -1,41 +1,41 @@
 <div class="container mat-elevation-z8">
-    <h1 class="funllWidth centralize">Atualizar Cliente</h1>
+    <h1 class="funllWidth centralize">Atualizar Técd gecnico</h1>
     <form [formGroup]="form" class="form">
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>Nome</mat-label>
             <input [(ngModel)]="tecnico.nome" formControlName="nome" value="{{tecnico.nome}}" matInput placeholder="José Silva">
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>CPF</mat-label>
             <input [(ngModel)]="tecnico.cpf" formControlName="cpf" value="{{tecnico.cpf}}" matInput placeholder="000.000.000-00"
                 mask="000.000.000-00">
             <mat-icon class="half-opaque" matSuffix>pin</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>E-mail</mat-label>
             <input [(ngModel)]="tecnico.email" formControlName="email" value="{{tecnico.email}}" matInput placeholder="jose@mail.com">
             <mat-icon class="half-opaque" matSuffix>email</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>Senha</mat-label>
             <input [(ngModel)]="tecnico.senha" type="password" formControlName="senha" value="{{tecnico.senha}}" matInput placeholder="123">
             <mat-icon class="half-opaque" matSuffix>key</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>Especialidade</mat-label>
-            <input [(ngModel)]="tecnico.senha" formControlName="especialidade" value="{{tecnico.especialidade}}" matInput placeholder="123">
-            <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+            <input [(ngModel)]="tecnico.especialidade" formControlName="especialidade" value="{{tecnico.especialidade}}" matInput placeholder="123">
+            <mat-icon class="half-opaque" matSuffix>workspace_premium</mat-icon>
         </mat-form-field>
 
-        <mat-form-field class="funllWidth" appearance="outline">
+        <mat-form-field class="funllWidth">
             <mat-label>Anos de Experiência</mat-label>
-            <input [(ngModel)]="tecnico.senha" formControlName="anosExp" value="{{tecnico.anosExp}}" matInput placeholder="123">
-            <mat-icon class="half-opaque" matSuffix>key</mat-icon>
+            <input [(ngModel)]="tecnico.anosExp" formControlName="anosExp" value="{{tecnico.anosExp}}" matInput placeholder="123">
+            <mat-icon class="half-opaque" matSuffix>schedule</mat-icon>
         </mat-form-field>
 
         <div class="funllWidth centralize check">
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <button (click)="update()" class="mat-elevation-z4" [disabled]="!validarCampos()" mat-raised-button color="primary">Cadastrar</button>
+        <button (click)="update()" class="mat-elevation-z4" [disabled]="!validarCampos()" mat-raised-button color="primary">Atualizar</button>
         <button routerLink="/tecnico" class="mat-elevation-z4" mat-raised-button color="warn">Cancelar</button>
     </form>
 </div>

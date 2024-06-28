@@ -40,11 +40,10 @@ export class UpdateClienteComponent implements OnInit {
   findById() {
     console.log(this.cliente)
     this.service.findById(this.cliente.id).subscribe(resp => {
-      resp.perfis = []
+      resp.perfis = [1]
       this.cliente = resp;
     });
   }
-
   update(): void {
     this.service.update(this.cliente).subscribe(() => {
       this.toast.success("Cliente atualizado com sucesso")
@@ -59,7 +58,6 @@ export class UpdateClienteComponent implements OnInit {
       }
     })
   }
-
   addPerfil(perfil: any) {
     if (this.cliente.perfis.includes(perfil)) {
       this.cliente.perfis.splice(this.cliente.perfis.indexOf(perfil))

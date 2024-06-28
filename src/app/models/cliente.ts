@@ -4,6 +4,6 @@ export interface Cliente {
     cpf: string;
     email: string;
     senha: string;
-    perfis: string[];
+    perfis: any[];
     dataCadatro: any;
 }
