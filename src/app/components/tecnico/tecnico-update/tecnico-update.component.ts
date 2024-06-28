@@ -9,8 +9,8 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
     selector: 'app-update-tecnico',
-    templateUrl: './update-tecnico.component.html',
-    styleUrls: ['./update-tecnico.component.css']
+    templateUrl: './tecnico-update.component.html',
+    styleUrls: ['./tecnico-update.component.css']
 })
 export class UpdateTecnicoComponent implements OnInit {
     tecnico: Tecnico = {

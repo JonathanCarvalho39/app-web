@@ -33,11 +33,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { NgxMaskModule } from 'ngx-mask';
-import { CreateTecnicoComponent } from './components/tecnico/create-tecnico/create-tecnico.component';
-import { UpdateTecnicoComponent } from './components/tecnico/update-tecnico/update-tecnico.component';
-import { CreateClienteComponent } from './components/cliente/create-cliente/create-cliente.component';
-import { UpdateClienteComponent } from './components/cliente/update-cliente/update-cliente.component'; // Adicionado
+import { CreateTecnicoComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { UpdateTecnicoComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+import { CreateClienteComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { UpdateClienteComponent } from './components/cliente/cliente-update/cliente-update.component'; // Adicionado
 import Swal from 'sweetalert2';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
+import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import Swal from 'sweetalert2';
     CreateTecnicoComponent,
     UpdateTecnicoComponent,
     CreateClienteComponent,
-    UpdateClienteComponent // Adicionado
+    UpdateClienteComponent,
+    ChamadoListComponent,
+    ChamadoUpdateComponent,
+    ChamadoCreateComponent // Adicionado
   ],
   imports: [
     BrowserModule,

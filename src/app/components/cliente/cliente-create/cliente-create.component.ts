@@ -6,8 +6,8 @@ import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
 @Component({
   selector: 'app-create-cliente',
-  templateUrl: './create-cliente.component.html',
-  styleUrls: ['./create-cliente.component.css']
+  templateUrl: './cliente-create.component.html',
+  styleUrls: ['./cliente-create.component.css']
 })
 export class CreateClienteComponent implements OnInit {
 

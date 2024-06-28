@@ -7,8 +7,8 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
   selector: 'app-create-tecnico',
-  templateUrl: './create-tecnico.component.html',
-  styleUrls: ['./create-tecnico.component.css']
+  templateUrl: './tecnico-create.component.html',
+  styleUrls: ['./tecnico-create.component.css']
 })
 export class CreateTecnicoComponent implements OnInit {
 

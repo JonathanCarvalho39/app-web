@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/cliente'
 import { ClienteService } from 'src/app/services/cliente.service';
 import Swal from 'sweetalert2';
@@ -18,7 +19,7 @@ export class ClienteListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private service: ClienteService,
-
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -51,7 +52,7 @@ export class ClienteListComponent implements OnInit {
             showCancelButton: true
           }).then(resp => {
             if (resp.isConfirmed) {
-              location.reload()
+              this.findAll()
             }
           })
         }, ex => {

@@ -6,10 +6,10 @@ import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
-import { CreateTecnicoComponent } from './components/tecnico/create-tecnico/create-tecnico.component';
-import { UpdateTecnicoComponent } from './components/tecnico/update-tecnico/update-tecnico.component';
-import { CreateClienteComponent } from './components/cliente/create-cliente/create-cliente.component';
-import { UpdateClienteComponent } from './components/cliente/update-cliente/update-cliente.component';
+import { CreateTecnicoComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { UpdateTecnicoComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+import { CreateClienteComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { UpdateClienteComponent } from './components/cliente/cliente-update/cliente-update.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

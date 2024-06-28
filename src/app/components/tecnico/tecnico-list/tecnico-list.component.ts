@@ -59,7 +59,7 @@ export class TecnicoListComponent implements OnInit {
             showConfirmButton: true,
           }).then((resp) => {
             if (resp.isConfirmed) {
-              location.reload()
+              this.findAll()
             }
           });
         }, ex => {
