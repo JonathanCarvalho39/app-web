@@ -1,1 +1,47 @@
-<p>chamado-create works!</p>
+<div class="container mat-elevation-z8">
+  <h1 class="fullWidth">Criar um novo Chamado</h1>
+
+  <form [formGroup]="form" class="form">
+
+    <mat-form-field class="fullWidth" appearance="outline">
+      <mat-label>Titulo do Chamado</mat-label>
+      <input [(ngModel)]="chamado.titulo" required formControlName="titulo" matInput placeholder="Manutenção">
+    </mat-form-field>
+
+    <div class="select">
+      <mat-form-field appearance="outline">
+        <mat-label>Técnicos</mat-label>
+        <mat-select [(ngModel)]="chamado.tecnico" formControlName="tecnico" required>
+          <mat-option *ngFor="let tecnico of dataSurceTecnico.data" [value]="tecnico">{{tecnico.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Cliente</mat-label>
+        <mat-select [(ngModel)]="chamado.cliente" formControlName="cliente" required>
+          <mat-option *ngFor="let cliente of dataSurceCliente.data" [value]="cliente">{{cliente.nome}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Observações</mat-label>
+      <textarea [(ngModel)]="chamado.observacoes" required formControlName="observacoes" matInput
+        placeholder="Trocar bateria"></textarea>
+    </mat-form-field>
+
+    <label class="margin">Selecione o grau de prioridade</label>
+    <section class="section">
+      <mat-radio-group [(ngModel)]="check" formControlName="prioridade" required>
+        <mat-radio-button color="warn" value=1>Alta</mat-radio-button>
+        <mat-radio-button color="warn" value=1>Média</mat-radio-button>
+        <mat-radio-button color="warn" value=0>Baixa</mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <button (click)="crate()" class="mat-elevation-z4" [disabled]="!validarCampos()" mat-raised-button
+      color="primary">Cadastrar</button>
+    <button routerLink="../" class="mat-elevation-z4" mat-raised-button color="warn">Cancelar</button>
+
+  </form>
+
+</div>

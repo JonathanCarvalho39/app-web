@@ -37,7 +37,6 @@ import { CreateTecnicoComponent } from './components/tecnico/tecnico-create/tecn
 import { UpdateTecnicoComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { CreateClienteComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { UpdateClienteComponent } from './components/cliente/cliente-update/cliente-update.component'; // Adicionado
-import Swal from 'sweetalert2';
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
@@ -91,7 +90,7 @@ import { ChamadoCreateComponent } from './components/chamado/chamado-create/cham
     NgxMaskModule.forRoot(),
   ],
 
- 
+
 
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

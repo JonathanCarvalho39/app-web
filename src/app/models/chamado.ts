@@ -8,6 +8,4 @@ export class Chamado {
     observacoes: string;
     tecnico: any;
     cliente: any;
-    nomeCliente: string;
-    nomeTecnico: string
 }

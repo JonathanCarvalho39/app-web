@@ -4,8 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Chamado } from 'src/app/models/chamado';
 import { ChamadoService } from 'src/app/services/chamado.service';
-import { ClienteService } from 'src/app/services/cliente.service';
-import { TecnicoService } from 'src/app/services/tecnico.service';
 import Swal from 'sweetalert2';
 
 @Component({

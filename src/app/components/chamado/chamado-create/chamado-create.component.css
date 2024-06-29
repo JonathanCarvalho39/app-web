@@ -1,0 +1,68 @@
+.container {
+  width: 40rem;
+  margin: -1rem auto;
+  padding: 3rem 1rem 3rem 1rem;
+  border-radius: 10px;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.centralize {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.funllWidth div {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.check {
+  justify-content: space-around;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.half-opaque {
+  opacity: 0.7;
+}
+
+mat-radio-group {
+  margin: 1rem 0;
+  justify-content: space-around;
+  display: flex;
+}
+
+textarea {
+  min-height: 3rem;
+  max-height: 7rem;
+}
+
+.select mat-form-field {
+  width: 49%;
+}
+
+.select {
+  justify-content: space-between;
+  display: flex;
+}
+
+label {
+  text-align: center;
+  margin: 1rem;
+}

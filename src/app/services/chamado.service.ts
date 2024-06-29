@@ -19,4 +19,8 @@ export class ChamadoService {
     return this.http.delete<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`)
   }
 
+  create(chamado: Chamado): Observable<Chamado> {
+    return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado)
+  }
+
 }
