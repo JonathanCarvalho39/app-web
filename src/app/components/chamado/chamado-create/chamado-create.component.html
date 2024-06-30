@@ -12,13 +12,13 @@
       <mat-form-field appearance="outline">
         <mat-label>Técnicos</mat-label>
         <mat-select [(ngModel)]="chamado.tecnico" formControlName="tecnico" required>
-          <mat-option *ngFor="let tecnico of dataSurceTecnico.data" [value]="tecnico">{{tecnico.nome}}</mat-option>
+          <mat-option *ngFor="let tecnico of dataSurceTecnico.data" [value]="tecnico.id">{{tecnico.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Cliente</mat-label>
         <mat-select [(ngModel)]="chamado.cliente" formControlName="cliente" required>
-          <mat-option *ngFor="let cliente of dataSurceCliente.data" [value]="cliente">{{cliente.nome}}</mat-option>
+          <mat-option *ngFor="let cliente of dataSurceCliente.data" [value]="cliente.id">{{cliente.nome}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -32,9 +32,9 @@
     <label class="margin">Selecione o grau de prioridade</label>
     <section class="section">
       <mat-radio-group [(ngModel)]="check" formControlName="prioridade" required>
-        <mat-radio-button color="warn" value=1>Alta</mat-radio-button>
-        <mat-radio-button color="warn" value=1>Média</mat-radio-button>
-        <mat-radio-button color="warn" value=0>Baixa</mat-radio-button>
+        <mat-radio-button color="warn" [value]="0">Baixa</mat-radio-button>
+        <mat-radio-button color="warn" [value]="1">Média</mat-radio-button>
+        <mat-radio-button color="warn" [value]="2">Alta</mat-radio-button>
       </mat-radio-group>
     </section>
 

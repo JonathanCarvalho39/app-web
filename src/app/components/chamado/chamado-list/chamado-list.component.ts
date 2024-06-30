@@ -31,7 +31,6 @@ export class ChamadoListComponent implements OnInit {
 
   constructor(
     private service: ChamadoService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -62,7 +61,6 @@ export class ChamadoListComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.service.delete(id).subscribe(() => {
-          debugger
           Swal.fire({
             title: 'Confirmado!',
             text: 'Chamado deletado com sucesso.',
@@ -79,6 +77,7 @@ export class ChamadoListComponent implements OnInit {
       }
     });
   }
+
   abirObservacoes(observacoes: string) {
     Swal.fire({
       title: 'Observação',
@@ -88,23 +87,14 @@ export class ChamadoListComponent implements OnInit {
     })
   }
 
-  infStatus(status: any): string {
-    if (status == 0) {
-      return 'ABERTO'
-    } else if (status == 1) {
-      return 'ANDAMENTO'
-    } else {
-      return 'ENCERRADO'
-    }
+  infLista(lista: any): string {
+    return lista[lista.length - 1]
   }
 
-  infprioridade(prioridade: any): string {
-    if (prioridade == 0) {
-      return 'BAIXA'
-    } else if (prioridade == 1) {
-      return 'MÉDIA'
-    } else {
-      return 'ALTA'
-    }
-  }
+  convertDate(dataParam: Date) {
+    let data = new Date(dataParam);
+    let formatter = new Intl.DateTimeFormat('pt-BR');
+    return formatter.format(data);
+}
+
 }

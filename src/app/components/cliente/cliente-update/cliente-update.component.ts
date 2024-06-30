@@ -39,7 +39,7 @@ export class UpdateClienteComponent implements OnInit {
 
   findById() {
     this.service.findById(this.cliente.id).subscribe(resp => {
-      
+
       this.cliente = resp;
       this.cliente.perfis.splice(this.cliente.perfis.indexOf('CLIENTE'), 1)
       this.cliente.perfis.push(1)
@@ -79,10 +79,7 @@ export class UpdateClienteComponent implements OnInit {
   }
 
   validarCampos(): boolean {
-    return this.form.controls['email'].valid &&
-      this.form.controls['senha'].valid &&
-      this.form.controls['cpf'].valid &&
-      this.form.controls['nome'].valid
+    return this.form.valid
   }
 
 }

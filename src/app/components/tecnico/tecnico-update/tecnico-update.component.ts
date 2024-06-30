@@ -46,16 +46,16 @@ export class UpdateTecnicoComponent implements OnInit {
     }
 
     findById() {
-        this.service.findById(this.tecnico.id).subscribe(resp => {  
+        this.service.findById(this.tecnico.id).subscribe(resp => {
 
             this.tecnico = resp;
             this.tecnico.perfis.splice(this.tecnico.perfis.indexOf('TECNICO'), 1)
             this.tecnico.perfis.push(2)
             this.tecnico.perfis.splice(this.tecnico.perfis.indexOf('CLIENTE'), 1)
             this.tecnico.perfis.push(1)
-            
+
             this.tecnico.perfis.forEach(element => {
-                
+
                 if (element == 'ADMIN') {
                     this.form.patchValue({ admin: true });
                     this.tecnico.perfis.splice(0, 1)
@@ -91,12 +91,7 @@ export class UpdateTecnicoComponent implements OnInit {
     }
 
     validarCampos(): boolean {
-        return this.form.controls['email'].valid &&
-            this.form.controls['senha'].valid &&
-            this.form.controls['cpf'].valid &&
-            this.form.controls['nome'].valid &&
-            this.form.controls['especialidade'].valid &&
-            this.form.controls['anosExp'].valid
-    }
+        return this.form.valid
+      }
 
 }

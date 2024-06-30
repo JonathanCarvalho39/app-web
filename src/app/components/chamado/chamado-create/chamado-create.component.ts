@@ -19,11 +19,8 @@ export class ChamadoCreateComponent implements OnInit {
   check: any
 
   chamado: Chamado = {
-    id: '',
-    dataAbertura: '',
-    dataFechamento: '',
-    prioridade: '',
-    status: '',
+    prioridade: [],
+    status: [],
     titulo: '',
     observacoes: '',
     tecnico: '',
@@ -34,7 +31,7 @@ export class ChamadoCreateComponent implements OnInit {
   ELEMENTE_TECNICO: Tecnico[] = []
 
   form = new FormGroup({
-    titulo: new FormControl(null, Validators.minLength(3)),
+    titulo: new FormControl(null, Validators.minLength(3) && Validators.maxLength(30)),
     observacoes: new FormControl(null, Validators.minLength(3)),
     cliente: new FormControl(null, Validators.minLength(3)),
     tecnico: new FormControl(null, Validators.minLength(3)),
@@ -61,23 +58,22 @@ export class ChamadoCreateComponent implements OnInit {
     this.serviceCliente.findAll().subscribe(resp => {
       this.ELEMENT_CLIENTE = resp
       this.dataSurceCliente = new MatTableDataSource<Cliente>(resp)
-      this.serviceTecnico.findAll().subscribe(resp => {
-        this.ELEMENTE_TECNICO = resp
-        this.dataSurceTecnico = new MatTableDataSource<Cliente>(resp)
-      }, ex => {
-        console.log(ex);
-      })
+    }, ex => {
+      console.log(ex);
+    })
+
+    this.serviceTecnico.findAll().subscribe(resp => {
+      this.ELEMENTE_TECNICO = resp
+      this.dataSurceTecnico = new MatTableDataSource<Cliente>(resp)
     }, ex => {
       console.log(ex);
     })
   }
 
   crate(): void {
-    this.chamado.prioridade = this.check
-    this.chamado.status = 0
-    console.log(this.chamado);
-
-    /* this.service.create(this.chamado).subscribe(() => {
+    this.chamado.prioridade.push(this.check)
+    this.chamado.status.push(0)
+    this.service.create(this.chamado).subscribe(() => {
       this.toast.success("Chamado cadastrado com sucesso")
       this.route.navigate(['/chamado'])
     }, ex => {
@@ -88,11 +84,8 @@ export class ChamadoCreateComponent implements OnInit {
       } else {
         this.toast.error(ex.error.message)
       }
-    }) */
+    })
   }
-
-
-
   validarCampos(): boolean {
     return this.form.valid
   }

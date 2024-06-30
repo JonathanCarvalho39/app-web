@@ -64,14 +64,8 @@ export class CreateTecnicoComponent implements OnInit {
       this.tecnico.perfis.push(perfil)
     }
   }
-
   validarCampos(): boolean {
-    return this.form.controls['email'].valid &&
-      this.form.controls['senha'].valid &&
-      this.form.controls['cpf'].valid &&
-      this.form.controls['nome'].valid &&
-      this.form.controls['especialidade'].valid &&
-      this.form.controls['anosExp'].valid
+    return this.form.valid
   }
 
 }

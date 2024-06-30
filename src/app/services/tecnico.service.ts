@@ -7,11 +7,8 @@ import { Tecnico } from '../models/tecnico';
 @Injectable({
   providedIn: 'root'
 })
-export class TecnicoService {
-  delete(id: any) {
-    return this.http.delete(`${API_CONFIG.baseUrl}/tecnicos/${id}`)
-  }
 
+export class TecnicoService {
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Tecnico[]> {
@@ -28,5 +25,9 @@ export class TecnicoService {
 
   update(tecnico: Tecnico): Observable<Tecnico[]> {
     return this.http.put<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico)
+  }
+
+  delete(id: any) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/tecnicos/${id}`)
   }
 }
