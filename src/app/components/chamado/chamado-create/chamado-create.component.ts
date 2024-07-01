@@ -19,12 +19,15 @@ export class ChamadoCreateComponent implements OnInit {
   check: any
 
   chamado: Chamado = {
+    id: '',
     prioridade: [],
     status: [],
     titulo: '',
     observacoes: '',
     tecnico: '',
     cliente: '',
+    nomeCliente: '',
+    nomeTecnico: ''
   };
 
   ELEMENT_CLIENTE: Cliente[] = []

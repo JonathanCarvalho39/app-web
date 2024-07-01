@@ -8,8 +8,8 @@
     overflow-y: auto;
 }
 
-mat-radio-group{
-    width: 30%;
+mat-radio-group {
+    width: 35rem;
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
@@ -75,4 +75,3 @@ mat-form-field {
     justify-content: center;
     margin-top: 20px;
 }
-
