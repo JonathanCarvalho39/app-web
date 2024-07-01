@@ -1,0 +1,62 @@
+<div class="container">
+    <mat-card class="card mat-elevation-z4">
+        <mat-card-header>
+            <div mat-card-avatar class="image"><i class="material-icons"> fact_check </i></div>
+            <mat-card-title>{{chamado.titulo}}</mat-card-title>
+        </mat-card-header>
+
+        <div class="data">
+            <p>Data de abertura: {{convertDate(chamado.dataAbertura)}}</p>
+            <p>Data de Fechamento: {{convertDate(chamado.dataFechamento)}}</p>
+        </div>
+        <div class="status">
+            <div class="fluxo mat-elevation-z4">
+                <h2>Status</h2>
+                <div class="centralize">
+                    <label>ABERTO</label>
+                    <i [ngStyle]="{'color' : colorStatus(chamado.status[0])}" class="material-icons">arrow_drop_down_circle</i>
+                </div>
+                <div class="centralize">
+                    <label>ANDAMENTO</label>
+                    <i [ngStyle]="{'color' : colorStatus(chamado.status[1])}"  class="material-icons">arrow_drop_down_circle</i>
+                </div>
+                <div class="centralize">
+                    <label>ENCERRADO</label>
+                    <i [ngStyle]="{'color' : colorStatus(chamado.status[2])}"  class="material-icons">radio_button_checked</i>
+                </div>
+            </div>
+
+            <div class="dados">
+                <div class="dado-user">
+                    <h3>Dados do Tecnico</h3>
+                    <p>
+                        Nome: {{chamado.tecnico.nome}}<br>
+                        E-mail: {{chamado.tecnico.email}}<br>
+                        Especialidade: {{chamado.tecnico.especialidade}}<br>
+                        Anos de experiência: {{chamado.tecnico.anosExp}}
+                    </p>
+                </div>
+                <div class="dado-user">
+                    <h3>Dados do Cliente</h3>
+                    <p>
+                        Nome: {{chamado.cliente.nome}}<br>
+                        E-mail: {{chamado.cliente.email}}<br>
+                    </p>
+                </div>
+            </div>
+            <div class="observacoes">
+                <h2>Observações</h2>
+                <p>
+                    {{chamado.observacoes}}
+                </p>
+            </div>
+        </div>
+
+        <img mat-card-image src="" alt="">
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button routerLink="/chamado" mat-button>Voltar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -8,11 +8,14 @@ import { API_CONFIG } from '../config/api.config';
   providedIn: 'root'
 })
 export class ChamadoService {
-
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Chamado[]> {
     return this.http.get<Chamado[]>(`${API_CONFIG.baseUrl}/chamados`)
+  }
+
+  findById(id: any): Observable<Chamado> {
+    return this.http.get<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`)
   }
 
   create(chamado: Chamado): Observable<Chamado> {

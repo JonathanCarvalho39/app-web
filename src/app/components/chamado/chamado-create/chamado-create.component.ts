@@ -19,12 +19,15 @@ export class ChamadoCreateComponent implements OnInit {
   check: any
 
   chamado: Chamado = {
+    id: '',
+    dataAbertura: '',
+    dataFechamento: '',
     prioridade: [],
     status: [],
     titulo: '',
     observacoes: '',
     tecnico: '',
-    cliente: '',
+    cliente: ''
   };
 
   ELEMENT_CLIENTE: Cliente[] = []
@@ -71,6 +74,8 @@ export class ChamadoCreateComponent implements OnInit {
   }
 
   crate(): void {
+    console.log(this.chamado);
+    
     this.chamado.prioridade.push(this.check)
     this.chamado.status.push(0)
     this.service.create(this.chamado).subscribe(() => {

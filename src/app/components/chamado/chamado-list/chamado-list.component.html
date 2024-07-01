@@ -78,6 +78,9 @@
                         <a (click)="delete(element.id, element.titulo)">
                             <i class="material-icons delete">delete_forever</i>
                         </a>
+                        <a routerLink="read/{{element.id}}">
+                            <i class="material-icons read">visibility</i>
+                        </a>
                     </div>
                 </td>
             </ng-container>
