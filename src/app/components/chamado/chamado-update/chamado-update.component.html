@@ -5,7 +5,8 @@
 
     <mat-form-field class="fullWidth" appearance="outline">
       <mat-label>Titulo do Chamado</mat-label>
-      <input [(ngModel)]="chamado.titulo" value="{{chamado.titulo}}" required formControlName="titulo" matInput placeholder="Manutenção">
+      <input [(ngModel)]="chamado.titulo" value="{{chamado.titulo}}" required formControlName="titulo" matInput
+        placeholder="Manutenção">
     </mat-form-field>
 
     <div class="select">
@@ -22,21 +23,30 @@
         </mat-select>
       </mat-form-field>
     </div>
-
+    <div class="select">
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="chamado.status" formControlName="status" required>
+          <mat-option [value]="0"> ABERTO </mat-option>
+          <mat-option [value]="1"> ANDAMENTO </mat-option>
+          <mat-option [value]="2"> ENCERRADO </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Prioridade</mat-label>
+        <mat-select [(ngModel)]="prioridade" formControlName="prioridade" required>
+          <mat-option [value]="0"> BAIXA </mat-option>
+          <mat-option [value]="1"> MÉDIA </mat-option>
+          <mat-option [value]="2"> ALTA </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
     <mat-form-field appearance="outline">
       <mat-label>Observações</mat-label>
-      <textarea [(ngModel)]="chamado.observacoes" value="{{chamado.observacoes}}" required formControlName="observacoes" matInput
-        placeholder="Trocar bateria"></textarea>
+      <textarea [(ngModel)]="chamado.observacoes" value="{{chamado.observacoes}}" required formControlName="observacoes"
+        matInput placeholder="Trocar bateria"></textarea>
     </mat-form-field>
 
-    <label class="margin">Selecione o grau de prioridade</label>
-    <section class="section">
-      <mat-radio-group [(ngModel)]="check" required>
-        <mat-radio-button id="radioBaixa" color="warn" [value]="0" >Baixa</mat-radio-button>
-        <mat-radio-button id="radioMedia" color="warn" [value]="1" >Média</mat-radio-button>
-        <mat-radio-button id="radioAlta" color="warn" [value]="2" >Alta</mat-radio-button>
-      </mat-radio-group>
-    </section>
 
     <button (click)="update()" class="mat-elevation-z4" [disabled]="!validarCampos()" mat-raised-button
       color="primary">Atualizar</button>

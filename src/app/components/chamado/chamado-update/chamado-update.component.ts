@@ -17,10 +17,11 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
   changeDetection: ChangeDetectionStrategy.OnPush // Use OnPush strategy
 })
 export class ChamadoUpdateComponent implements OnInit {
-  check: any;
 
   chamado: Chamado = {
     id: '',
+    dataAbertura: '',
+    dataFechamento: '',
     prioridade: [],
     status: [],
     titulo: '',
@@ -31,15 +32,18 @@ export class ChamadoUpdateComponent implements OnInit {
     nomeTecnico: ''
   };
 
+  prioridade: any
+
   ELEMENT_CLIENTE: Cliente[] = [];
   ELEMENTE_TECNICO: Tecnico[] = [];
 
   form = new FormGroup({
     titulo: new FormControl(null, [Validators.minLength(3), Validators.maxLength(30)]),
     observacoes: new FormControl(null, Validators.minLength(3)),
-    cliente: new FormControl(null, Validators.minLength(3)),
-    tecnico: new FormControl(null, Validators.minLength(3)),
-    check: new FormControl(0, Validators.required) // Adicionado aqui
+    cliente: new FormControl(null, Validators.required),
+    tecnico: new FormControl(null, Validators.required),
+    prioridade: new FormControl(null, Validators.required),
+    status: new FormControl(null, Validators.required) // Adicionado aqui
   });
 
   dataSourceCliente = new MatTableDataSource<Cliente>(this.ELEMENT_CLIENTE);
@@ -52,7 +56,7 @@ export class ChamadoUpdateComponent implements OnInit {
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.buscaRecurso();
@@ -65,8 +69,6 @@ export class ChamadoUpdateComponent implements OnInit {
     this.service.findById(this.chamado.id).subscribe(
       (resp) => {
         this.chamado = resp;
-
-
       },
       (ex) => {
         console.log(ex);
@@ -101,13 +103,8 @@ export class ChamadoUpdateComponent implements OnInit {
   }
 
   update(): void {
-    debugger;
-    let status = this.chamado.status.length - 1;
-    this.chamado.prioridade = [];
-    this.chamado.status = [];
-    this.chamado.prioridade.push(this.form.get('check')?.value);
-    this.chamado.status.push(status);
 
+    this.chamado.prioridade.push(this.prioridade)
     console.log(this.chamado);
 
     /* this.service.create(this.chamado).subscribe(() => {

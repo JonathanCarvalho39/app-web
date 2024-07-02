@@ -8,7 +8,6 @@ import { API_CONFIG } from '../config/api.config';
   providedIn: 'root'
 })
 export class ChamadoService {
-
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<Chamado[]> {

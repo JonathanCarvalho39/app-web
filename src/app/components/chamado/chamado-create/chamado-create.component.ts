@@ -20,6 +20,8 @@ export class ChamadoCreateComponent implements OnInit {
 
   chamado: Chamado = {
     id: '',
+    dataAbertura: '',
+    dataFechamento: '',
     prioridade: [],
     status: [],
     titulo: '',

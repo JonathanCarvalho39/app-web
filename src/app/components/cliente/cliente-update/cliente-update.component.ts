@@ -28,7 +28,11 @@ export class UpdateClienteComponent implements OnInit {
     senha: new FormControl(null, Validators.minLength(3))
   });
 
-  constructor(private service: ClienteService, private toast: ToastrService, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private service: ClienteService,
+    private toast: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute) {
 
   }
 

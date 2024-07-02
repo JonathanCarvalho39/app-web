@@ -78,6 +78,10 @@ export class ChamadoListComponent implements OnInit {
     });
   }
 
+  read(id: any) {
+
+  }
+
   abirObservacoes(observacoes: string) {
     Swal.fire({
       title: 'Observação',
@@ -88,13 +92,19 @@ export class ChamadoListComponent implements OnInit {
   }
 
   infLista(lista: any): string {
-    return lista[lista.length - 1]
+    if (lista.includes('ENCERRADO')) {
+      return 'ENCERRADO'
+    } else if (lista.includes('ANDAMENTO')) {
+      return 'ANDAMENTO'
+    } else {
+      return 'ABERTO'
+    }
   }
 
   convertDate(dataParam: Date) {
     let data = new Date(dataParam);
     let formatter = new Intl.DateTimeFormat('pt-BR');
     return formatter.format(data);
-}
+  }
 
 }
